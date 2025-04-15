@@ -11,7 +11,7 @@ class UserProfile(AbstractUser):
         ('buyer', 'buyer')
     )
     role = models.CharField(max_length=32, choices=ROLE_CHOICES, default='seller')
-    phone_number = PhoneNumberField()
+    phone_number = PhoneNumberField(null=True, blank=True)
 
     def __str__(self):
         return f'{self.first_name}, {self.last_name}'
@@ -94,7 +94,7 @@ class Bid(models.Model):
 class Feedback(models.Model):
     seller = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='user_seller')
     buyer = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='user_buyer')
-    rating = models.PositiveIntegerField(choices=[(i, str(i)) for i in range(1, 5)], null=True, blank=True)
+    rating = models.PositiveIntegerField(choices=[(i, str(i)) for i in range(1, 6)], null=True, blank=True)
     comment = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
