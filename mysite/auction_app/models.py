@@ -34,7 +34,7 @@ class CarModel(models.Model):
 
 class Car(models.Model):
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name='car_brand')
-    car_model = models.ForeignKey(CarModel, on_delete=models.CASCADE)
+    car_model = models.ForeignKey(CarModel, on_delete=models.CASCADE, related_name='model_car')
     year = models.PositiveSmallIntegerField(validators=[MinValueValidator(1980),
                                                         MaxValueValidator(2025)])
     FUEL_TYPE_CHOICES = (

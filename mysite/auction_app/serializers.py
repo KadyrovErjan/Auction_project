@@ -105,10 +105,11 @@ class BrandDetailSerializers(serializers.ModelSerializer):
         fields = ['brand_name', 'car_brand']
 
 class CarModelDetailSerializers(serializers.ModelSerializer):
-    car = CarListSerializers(many=True, read_only=True)
+    model_car = CarListSerializers(many=True, read_only=True)
+    # brand = BrandSimpleSerializers()
     class Meta:
-        model = Brand
-        fields = ['brand_name', 'car_brand']
+        model = CarModel
+        fields = ['model_car']
 
 
 class CarDetailSerializers(serializers.ModelSerializer):
