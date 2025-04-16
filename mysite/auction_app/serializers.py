@@ -85,18 +85,18 @@ class AuctionListSerializers(serializers.ModelSerializer):
         fields = ['car', 'min_price', 'end_time', 'status']
 
 class BidSerializers(serializers.ModelSerializer):
-    auction = AuctionListSerializers()
-    buyer = UserProfileSerializers()
+    # auction = AuctionListSerializers()
+    # buyer = UserProfileSerializers()
     class Meta:
         model = Bid
-        fields = ['auction', 'buyer', 'amount', 'created_at']
+        fields = '__all__'
 
 class FeedbackSerializers(serializers.ModelSerializer):
     seller = UserProfileSimpleSerializers()
     buyer = UserProfileSimpleSerializers()
     class Meta:
         model = Feedback
-        fields = ['seller', 'buyer', 'rating', 'comment', 'created_at']
+        fields = '__all__'
 
 class BrandDetailSerializers(serializers.ModelSerializer):
     car_brand = CarListSerializers(many=True, read_only=True)
