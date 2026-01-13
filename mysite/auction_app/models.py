@@ -62,7 +62,7 @@ class Car(models.Model):
 
 class CarImage(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='all_image_car')
-    car_image = models.ImageField(upload_to='car_image')
+    car_image = models.ImageField(upload_to='car_image/')
 
 class Auction(models.Model):
     car = models.OneToOneField(Car, on_delete=models.CASCADE)

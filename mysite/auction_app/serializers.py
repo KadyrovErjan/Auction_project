@@ -1,5 +1,3 @@
-from rest_framework import serializers
-from .models import *
 from .models import *
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
